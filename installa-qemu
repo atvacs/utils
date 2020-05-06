@@ -19,6 +19,6 @@ sudo apt install libcanberra-gtk-module
 sudo apt instal qemu-system-data
 echo "-----------------------------------"
 echo "Finito. Potrebbe essere necessario riavviare. O forse dare il comando 'sudo ldconfig', non ne sono sicuro"
-echo "Per avviare qemu basta che fai 'cd qemu' e poi './start_arm'"
-echo "N.B. devi prima spostare il file 'start_arm' nella cartella 'qemu' e dare il comando 'sudo chmod +x start_arm'"
+echo "Per avviare qemu basta che fai 'cd qemu' e poi './start-arm'"
+echo "N.B. devi prima spostare il file 'start-arm' nella cartella 'qemu' e dare il comando 'sudo chmod +x start-arm'"
 
