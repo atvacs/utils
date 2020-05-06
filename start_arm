@@ -1,0 +1,12 @@
+#!/bin/bash
+
+./qemu-system-arm  \
+   -M rv_c -smp 4  \
+   -kernel vmlinuz-5.4.12-rv  \
+   -hda hd.rv.5.4.12.qcow2  \
+   -append "root=/dev/sda1 console=ttyAMA0"  \
+   -net nic,macaddr=52:54:00:12:34:97  \
+   -net user,hostfwd=tcp::11011-:22022 \
+   -dtb rvboard.dtb  \
+   -serial mon:stdio \
+   -nographic
