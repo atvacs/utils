@@ -8,10 +8,12 @@ wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard.dtb
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard_a9.dtb
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/hd.rv.5.4.12.qcow2.xz
 wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.tar.xz
+wget https://raw.githubusercontent.com/atvacs/utils/master/start-arm
 xz -d hd.rv.5.4.12.qcow2.xz
 tar xf libs.qemu.tar.xz
 rm libs.qemu.tar.xz
 sudo chmod +x qemu-system-arm
+sudo chmod +x start-arm
 sudo mv lib/* /usr/lib/
 sudo rm -rf lib
 sudo apt update
@@ -20,5 +22,3 @@ sudo apt instal qemu-system-data
 echo "-----------------------------------"
 echo "Finito. Potrebbe essere necessario riavviare. O forse dare il comando 'sudo ldconfig', non ne sono sicuro"
 echo "Per avviare qemu basta che fai 'cd qemu' e poi './start-arm'"
-echo "N.B. devi prima spostare il file 'start-arm' nella cartella 'qemu' e dare il comando 'sudo chmod +x start-arm'"
-
