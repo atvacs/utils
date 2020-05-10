@@ -18,6 +18,6 @@ sudo mv lib/* /usr/lib/
 sudo rm -rf lib
 sudo apt update
 sudo apt install libcanberra-gtk-module
-sudo apt instal qemu-system-data
+sudo apt install qemu-system-data
 echo "-----------------------------------"
 echo "Finito, per avviare qemu basta che fai 'cd qemu' e poi './start-arm'"
