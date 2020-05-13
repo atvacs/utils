@@ -1,23 +1,43 @@
 #!/bin/bash
 
+CYAN = '\033[0;36m'
+NC = '\033[0m'
+
+echo -e "${CYAN}1. Creating and moving to ~/qemu directory${NC}"
 mkdir ~/qemu
 cd ~/qemu
+
+echo -e "${CYAN}2. Downloading all files needed${NC}"
 wget http://www.dpia.uniud.it/loghi/qemu/binaries/qemu-system-arm
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/vmlinuz-5.4.12-rv
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard.dtb
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard_a9.dtb
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/hd.rv.5.4.12.qcow2.xz
 wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.tar.xz
+wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu_ui.tar.xz
+wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.others.tar.xz
 wget https://raw.githubusercontent.com/atvacs/utils/master/start-arm
+
+echo -e "${CYAN}3. Uncompressing hdd${NC}"
 xz -d hd.rv.5.4.12.qcow2.xz
+
+echo -e "${CYAN}4. Add dynamic libraries to path${NC}"
+mkdir lib-ui
+tar xf libs.qemu.others.tar.xz
+mv lib lib-others
 tar xf libs.qemu.tar.xz
-rm libs.qemu.tar.xz
+tar xf libs.qemu_ui.tar.xz -C lib-ui
+
+echo "WiP"
+
+echo -e "${CYAN}5. Adding execution permission to qemu and startup script${NC}"
 sudo chmod +x qemu-system-arm
 sudo chmod +x start-arm
-sudo mv lib/* /usr/lib/
-sudo rm -rf lib
+
+echo -e "${CYAN}6. Installing stuff that *seem* to make some errors go away${NC}"
 sudo apt update
 sudo apt install libcanberra-gtk-module
 sudo apt install qemu-system-data
-echo "-----------------------------------"
-echo "Finito, per avviare qemu basta che fai 'cd qemu' e poi './start-arm'"
+
+echo -e "${CYAN}-----------------------------------${NC}"
+echo -e "${CYAN}Finito, per avviare qemu basta che fai 'cd ~/qemu' e poi './start-arm'${NC}"
