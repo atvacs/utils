@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CYAN = '\033[0;36m'
-NC = '\033[0m'
+CYAN='\033[0;36m'
+NC='\033[0m'
 
 echo -e "${CYAN}1. Creating and moving to ~/qemu directory${NC}"
 mkdir ~/qemu
