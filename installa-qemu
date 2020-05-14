@@ -39,5 +39,10 @@ sudo apt update
 sudo apt install libcanberra-gtk-module
 sudo apt install qemu-system-data
 
+echo -e "${CYAN}7. Clean up${NC}"
+rm libs.qemu.others.tar.xz
+rm libs.qemu.tar.xz
+rm libs.qemu_ui.tar.xz
+
 echo -e "${CYAN}-----------------------------------${NC}"
 echo -e "${CYAN}Finito, per avviare qemu basta che fai 'cd ~/qemu' e poi './start-arm'${NC}"
