@@ -21,14 +21,19 @@ wget https://raw.githubusercontent.com/atvacs/utils/master/start-arm
 echo -e "${CYAN}3. Uncompressing hdd${NC}"
 xz -d hd.rv.5.4.12.qcow2.xz
 
-echo -e "${CYAN}4. Add dynamic libraries to path${NC}"
+echo -e "${CYAN}4. Setting up libraries${NC}"
 mkdir lib-ui
 tar xf libs.qemu.others.tar.xz
 mv lib lib-others
 tar xf libs.qemu.tar.xz
 tar xf libs.qemu_ui.tar.xz -C lib-ui
 
-echo "WiP"
+mkdir libs
+cp lib-ui/* $PWD/
+cp lib/libaudio.so.2 $PWD/libs/
+cp lib/libpng12.so.0 $PWD/libs/
+cp lib/libQtCore.so.4 $PWD/libs/
+cp lib/libQtGui.so.4 $PWD/libs/
 
 echo -e "${CYAN}5. Adding execution permission to qemu and startup script${NC}"
 sudo chmod +x qemu-system-arm
