@@ -30,10 +30,10 @@ tar xf libs.qemu_ui.tar.xz -C lib-ui
 
 mkdir libs
 cp lib-ui/* $PWD/
-cp lib/libaudio.so.2 $PWD/libs/
-cp lib/libpng12.so.0 $PWD/libs/
-cp lib/libQtCore.so.4 $PWD/libs/
-cp lib/libQtGui.so.4 $PWD/libs/
+cp lib/libaudio.so.2 libs/
+cp lib/libpng12.so.0 libs/
+cp lib/libQtCore.so.4 libs/
+cp lib/libQtGui.so.4 libs/
 
 echo -e "${CYAN}5. Adding execution permission to qemu and startup script${NC}"
 sudo chmod +x qemu-system-arm
