@@ -3,11 +3,11 @@
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-echo -e "${CYAN}1. Creating and moving to ~/qemu directory${NC}"
+echo -e "${CYAN}Creating and moving to ~/qemu directory${NC}"
 mkdir ~/qemu
 cd ~/qemu
 
-echo -e "${CYAN}2. Downloading all files needed${NC}"
+echo -e "${CYAN}Downloading all files needed${NC}"
 wget http://www.dpia.uniud.it/loghi/qemu/binaries/qemu-system-arm
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/vmlinuz-5.4.12-rv
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard.dtb
@@ -18,10 +18,10 @@ wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu_ui.tar.xz
 wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.others.tar.xz
 wget https://raw.githubusercontent.com/atvacs/utils/master/start-arm
 
-echo -e "${CYAN}3. Uncompressing hdd${NC}"
+echo -e "${CYAN}Uncompressing hdd${NC}"
 xz -d hd.rv.5.4.12.qcow2.xz
 
-echo -e "${CYAN}4. Setting up libraries${NC}"
+echo -e "${CYAN}Setting up libraries${NC}"
 mkdir lib-ui
 tar xf libs.qemu.others.tar.xz
 mv lib lib-others
@@ -35,19 +35,19 @@ cp lib/libpng12.so.0 libs/
 cp lib/libQtCore.so.4 libs/
 cp lib/libQtGui.so.4 libs/
 
-echo -e "${CYAN}5. Adding execution permission to qemu and startup script${NC}"
+echo -e "${CYAN}Adding execution permission to qemu and startup script${NC}"
 sudo chmod +x qemu-system-arm
 sudo chmod +x start-arm
-
-echo -e "${CYAN}7. Clean up${NC}"
-rm libs.qemu.others.tar.xz
-rm libs.qemu.tar.xz
-rm libs.qemu_ui.tar.xz
 
 #echo -e "${CYAN}[Optional] Installing stuff that *seem* to make some errors go away${NC}"
 #sudo apt update
 #sudo apt install libcanberra-gtk-module
 #sudo apt install qemu-system-data
+
+echo -e "${CYAN}Clean up${NC}"
+rm libs.qemu.others.tar.xz
+rm libs.qemu.tar.xz
+rm libs.qemu_ui.tar.xz
 
 echo -e "${CYAN}-----------------------------------${NC}"
 echo -e "${CYAN}Finito, per avviare qemu basta che fai 'cd ~/qemu' e poi './start-arm'${NC}"
