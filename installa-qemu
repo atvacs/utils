@@ -3,11 +3,11 @@
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-echo -e "${CYAN}Creating and moving to ~/qemu directory${NC}"
+echo -e "${CYAN}Creo la cartella e mi sposto in ~/qemu${NC}"
 mkdir ~/qemu
 cd ~/qemu
 
-echo -e "${CYAN}Downloading all files needed${NC}"
+echo -e "${CYAN}Download di tutti i file necessari${NC}"
 wget http://www.dpia.uniud.it/loghi/qemu/binaries/qemu-system-arm
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/vmlinuz-5.4.12-rv
 wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard.dtb
@@ -18,16 +18,15 @@ wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu_ui.tar.xz
 wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.others.tar.xz
 wget https://raw.githubusercontent.com/atvacs/utils/master/start-arm
 
-echo -e "${CYAN}Uncompressing hdd${NC}"
+echo -e "${CYAN}Decompressione HDD${NC}"
 xz -d hd.rv.5.4.12.qcow2.xz
 
-echo -e "${CYAN}Setting up libraries${NC}"
+echo -e "${CYAN}Metto a posto le librerie${NC}"
 mkdir lib-ui
 tar xf libs.qemu.others.tar.xz
 mv lib lib-others
 tar xf libs.qemu.tar.xz
 tar xf libs.qemu_ui.tar.xz -C lib-ui
-
 mkdir libs
 cp lib-ui/* $PWD/
 cp lib/libaudio.so.2 libs/
@@ -35,16 +34,16 @@ cp lib/libpng12.so.0 libs/
 cp lib/libQtCore.so.4 libs/
 cp lib/libQtGui.so.4 libs/
 
-echo -e "${CYAN}Adding execution permission to qemu and startup script${NC}"
+echo -e "${CYAN}Rendo eseguibili qemu e lo script di startup${NC}"
 sudo chmod +x qemu-system-arm
 sudo chmod +x start-arm
 
-#echo -e "${CYAN}[Optional] Installing stuff that *seem* to make some errors go away${NC}"
+#echo -e "${CYAN}[Opzionale] Installa roba extra che *forse* evita qualche errore${NC}"
 #sudo apt update
 #sudo apt install libcanberra-gtk-module
 #sudo apt install qemu-system-data
 
-echo -e "${CYAN}Clean up${NC}"
+echo -e "${CYAN}Pulizia${NC}"
 rm libs.qemu.others.tar.xz
 rm libs.qemu.tar.xz
 rm libs.qemu_ui.tar.xz
