@@ -39,15 +39,15 @@ echo -e "${CYAN}5. Adding execution permission to qemu and startup script${NC}"
 sudo chmod +x qemu-system-arm
 sudo chmod +x start-arm
 
-echo -e "${CYAN}6. Installing stuff that *seem* to make some errors go away${NC}"
-sudo apt update
-sudo apt install libcanberra-gtk-module
-sudo apt install qemu-system-data
-
 echo -e "${CYAN}7. Clean up${NC}"
 rm libs.qemu.others.tar.xz
 rm libs.qemu.tar.xz
 rm libs.qemu_ui.tar.xz
+
+#echo -e "${CYAN}[Optional] Installing stuff that *seem* to make some errors go away${NC}"
+#sudo apt update
+#sudo apt install libcanberra-gtk-module
+#sudo apt install qemu-system-data
 
 echo -e "${CYAN}-----------------------------------${NC}"
 echo -e "${CYAN}Finito, per avviare qemu basta che fai 'cd ~/qemu' e poi './start-arm'${NC}"
