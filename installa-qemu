@@ -3,11 +3,11 @@
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-echo -e "${CYAN}Creo la cartella e mi sposto in ~/qemu${NC}"
+echo "${CYAN}Creo la cartella e mi sposto in ~/qemu${NC}"
 mkdir ~/qemu
 cd ~/qemu
 
-echo -e "${CYAN}Download di tutti i file necessari${NC}"
+echo "${CYAN}Download di tutti i file necessari${NC}"
 wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/binaries/qemu-system-arm
 wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/rv-5.4/vmlinuz-5.4.12-rv
 wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard.dtb
@@ -18,10 +18,10 @@ wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu_u
 wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.others.tar.xz
 wget -q --show-progress https://raw.githubusercontent.com/atvacs/utils/master/start-arm
 
-echo -e "${CYAN}Decompressione HDD${NC}"
+echo "${CYAN}Decompressione HDD${NC}"
 xz -d hd.rv.5.4.12.qcow2.xz
 
-echo -e "${CYAN}Metto a posto le librerie${NC}"
+echo "${CYAN}Metto a posto le librerie${NC}"
 mkdir lib-ui
 tar xf libs.qemu.others.tar.xz
 mv lib lib-others
@@ -34,19 +34,19 @@ cp lib/libpng12.so.0 libs/
 cp lib/libQtCore.so.4 libs/
 cp lib/libQtGui.so.4 libs/
 
-echo -e "${CYAN}Rendo eseguibili qemu e lo script di startup${NC}"
+echo "${CYAN}Rendo eseguibili qemu e lo script di startup${NC}"
 sudo chmod +x qemu-system-arm
 sudo chmod +x start-arm
 
-#echo -e "${CYAN}[Opzionale] Installa roba extra che *forse* evita qualche errore${NC}"
+#echo "${CYAN}[Opzionale] Installa roba extra che *forse* evita qualche errore${NC}"
 #sudo apt update
 #sudo apt install libcanberra-gtk-module
 #sudo apt install qemu-system-data
 
-echo -e "${CYAN}Pulizia${NC}"
+echo "${CYAN}Pulizia${NC}"
 rm libs.qemu.others.tar.xz
 rm libs.qemu.tar.xz
 rm libs.qemu_ui.tar.xz
 
-echo -e "${CYAN}-----------------------------------${NC}"
-echo -e "${CYAN}Finito, per avviare qemu basta che fai 'cd ~/qemu' e poi './start-arm'${NC}"
+echo "${CYAN}-----------------------------------${NC}"
+echo "${CYAN}Finito, per avviare qemu basta che fai 'cd ~/qemu' e poi './start-arm'${NC}"
