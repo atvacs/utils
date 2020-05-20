@@ -8,15 +8,15 @@ mkdir ~/qemu
 cd ~/qemu
 
 echo -e "${CYAN}Download di tutti i file necessari${NC}"
-wget http://www.dpia.uniud.it/loghi/qemu/binaries/qemu-system-arm
-wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/vmlinuz-5.4.12-rv
-wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard.dtb
-wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard_a9.dtb
-wget http://www.dpia.uniud.it/loghi/qemu/rv-5.4/hd.rv.5.4.12.qcow2.xz
-wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.tar.xz
-wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu_ui.tar.xz
-wget http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.others.tar.xz
-wget https://raw.githubusercontent.com/atvacs/utils/master/start-arm
+wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/binaries/qemu-system-arm
+wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/rv-5.4/vmlinuz-5.4.12-rv
+wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard.dtb
+wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/rv-5.4/rvboard_a9.dtb
+wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/rv-5.4/hd.rv.5.4.12.qcow2.xz
+wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.tar.xz
+wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu_ui.tar.xz
+wget -q --show-progress http://www.dpia.uniud.it/loghi/qemu/binaries/libs.qemu.others.tar.xz
+wget -q --show-progress https://raw.githubusercontent.com/atvacs/utils/master/start-arm
 
 echo -e "${CYAN}Decompressione HDD${NC}"
 xz -d hd.rv.5.4.12.qcow2.xz
